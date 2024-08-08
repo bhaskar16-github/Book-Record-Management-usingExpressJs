@@ -2,8 +2,6 @@ const express = require("express");
 
 const usersRouter = require("./routes/users.js");
 const booksRouter = require("./routes/books.js");
-// const router = require("./routes/users.js");
-
 const app = express();
 
 const port = 8081;
@@ -18,8 +16,8 @@ app.get("/",(req,res)=>{
 
 
  
-app.use ("/users",usersRouter);
-app.use ("/books",booksRouter);
+app.use ("/users", usersRouter);
+app.use ("/books", booksRouter);
 
 
 app.get("*",(req,res)=>{
