@@ -1,0 +1,26 @@
+{
+  "name": "book-record-management-using-expressjs",
+  "version": "1.0.0",
+  "description": "book Record Management using ExpressJs.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhaskar16-github/Book-Record-Management-usingExpressJs.git"
+  },
+  "author": "bhaskar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhaskar16-github/Book-Record-Management-usingExpressJs/issues"
+  },
+  "homepage": "https://github.com/bhaskar16-github/Book-Record-Management-usingExpressJs#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
