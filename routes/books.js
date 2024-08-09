@@ -61,4 +61,90 @@ router.get("/issued/byUser",(req,res)=>{
   });
 }) ;
 
+// post method 1 for books
+
+// router.post("/", (req, res) => {
+//   const { id, name, author, genre, price, publisher, } =
+//     req.body;
+
+//   const book = books.find((each) => each.id === id);
+
+//   if (book) {
+//     return res.status(404).json({
+//       success: false,
+//       message: "This book alreadry exist",
+//     });
+//   }
+
+//   books.push({
+//     id,
+//     name,
+//     author,
+//     genre,
+//     price,
+//     publisher,
+//   });
+
+//   return res.status(201).json({
+//     success: true,
+//     message: "Successfully added Book..",
+//     data: books,
+//   });
+// });
+
+// post method 2 for books
+
+router.post("/", (req, res) => {
+  const { data } = req.body;
+
+  if (!data) {
+    return res.status(400).json({
+      success: false,
+      message: "No Data Was Provided",
+    });
+  }
+
+  const book = books.find((each) => each.id === data.id);
+
+  if (book) {
+    return res.status(404).json({
+      success: false,
+      message: "Book already exists with the same Id",
+    });
+  }
+
+  const allBooks = [...books, data];
+
+  return res.status(200).json({
+    success: true,
+    data: allBooks,
+  });
+});
+
+//Put Method in for updating Books
+
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const { data } = req.body;
+
+  const book = books.find((each) => each.id === id);
+
+  if (!book) {
+    return res.status(400).json({
+      success: false,
+      message: "Book not found with this Id",
+    });
+  }
+  const UpdatedData = books.map((each) => {
+    if (each.id === id) {
+      return { ...each, ...data };
+    }
+    return each;
+  });
+  return res.status(200).json({
+    success: true,
+    data: UpdatedData,
+  });
+});
+
 module.exports = router;
