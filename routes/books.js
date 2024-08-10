@@ -137,7 +137,10 @@ router.put("/:id", (req, res) => {
   }
   const UpdatedData = books.map((each) => {
     if (each.id === id) {
-      return { ...each, ...data };
+      return { 
+        ...each, 
+        ...data   // Spread operator
+       };
     }
     return each;
   });
@@ -146,5 +149,7 @@ router.put("/:id", (req, res) => {
     data: UpdatedData,
   });
 });
+
+
 
 module.exports = router;
